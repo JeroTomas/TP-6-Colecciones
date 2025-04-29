@@ -1,0 +1,77 @@
+///////////Clase Producto/////////////////
+
+public class Producto {
+    private String id;
+    private String nombre;
+    private double precio;
+    private int cantidad;
+    private categoriaProducto categoria;
+    
+    
+    public Producto (String id, String nombre, double precio, int cantidad, categoriaProducto categoria) {
+        this.id = id;
+        this.nombre = nombre;
+        this.precio = precio;
+        this.cantidad = cantidad;
+        this.categoria = categoria;
+    }
+    
+    public void mostrarInfo() {
+        System.out.println("ID: " + id);
+        System.out.println("Nombre: " + nombre);
+        System.out.println("Precio: " + precio);
+        System.out.println("Cantidad: " + cantidad);
+        System.out.println("Categoria: " + categoria);
+    }
+    
+    public enum categoriaProducto {
+        Alimentos,
+        Electronica,
+        Ropa,
+        Hogar
+    }
+}
+
+______________________________________________________________________________________________________________________
+
+/////////////////////////////Clase Inventario////////////////////
+
+import java.util.ArrayList;
+
+public class Inventario {
+    private ArrayList<Producto> productos = new ArrayList<>();
+    
+    public void agregarProducto(Producto p) {
+        productos.add(p);
+    }
+    
+    public void listaproductos() {
+        for (Producto p : productos) {
+            p.mostrarInfo();
+        }
+    }
+}
+
+_______________________________________________________________________________________________________________________
+
+////////////////////Clase main/////////////////////////
+
+import tp5.colecciones.Producto.categoriaProducto;
+
+
+public class TP5Colecciones {
+    public static void main(String[] args) {
+        Inventario inventario = new Inventario();
+        
+        Producto p1 = new Producto ("P01", "Palmerita", 1200.0, 12, categoriaProducto.Alimentos);
+        Producto p2 = new Producto ("P02", "Camiseta de Argentina", 299999.99, 1, categoriaProducto.Ropa);
+        Producto p3 = new Producto ("P03", "PS5", 1329999.99, 1, categoriaProducto.Electronica);
+        
+        inventario.agregarProducto(p1);
+        inventario.agregarProducto(p2);
+        inventario.agregarProducto(p3);
+        
+        inventario.listaproductos();
+    }
+    
+}
