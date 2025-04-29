@@ -1,0 +1,19 @@
+import tp5.colecciones.Producto.categoriaProducto;
+
+
+public class TP5Colecciones {
+    public static void main(String[] args) {
+        Inventario inventario = new Inventario();
+        
+        Producto p1 = new Producto ("P01", "Palmerita", 1200.0, 12, categoriaProducto.Alimentos);
+        Producto p2 = new Producto ("P02", "Camiseta de Argentina", 299999.99, 1, categoriaProducto.Ropa);
+        Producto p3 = new Producto ("P03", "PS5", 1329999.99, 1, categoriaProducto.Electronica);
+        
+        inventario.agregarProducto(p1);
+        inventario.agregarProducto(p2);
+        inventario.agregarProducto(p3);
+        
+        inventario.listaproductos();
+    }
+    
+}
